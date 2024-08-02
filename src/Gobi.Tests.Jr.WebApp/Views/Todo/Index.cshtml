@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Gobi.Test.Jr.Domain.TodoItem>
+
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+<h1>Seja bem vindo ao CRUD da Gobi Consulting!</h1>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Tarefa</th>
+			<th>Status</th>
+			<th>Completo</th>
+			<th>Finalizado</th>
+			<th>Opções</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr class="@(item.Finish ? "finalizado" : "nao-finalizado")">
+				<td>@item.Id</td>
+				<td>@item.Description</td>
+				<td>@item.Status</td>
+				<td>@(item.Completed ? "Sim" : "Não")</td>
+				<td>@(item.Finish ? "Sim" : "Não")</td>
+				<td>
+					<a asp-action="Add" class="btn btn-primary">Adicionar</a>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Atualizar</a>
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+<style>
+	.table thead th {
+		background-color: white;
+		color: black; 
+	}
+
+	.finalizado {
+		background-color: green;
+		color: white; 
+	}
+
+	.nao-finalizado {
+		background-color: darkred;
+		color: white;
+	}
+
+	h1 {
+		align-content: center;
+		padding-left: 232px;
+		color:white;
+		text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -5px 5px 0 #000, 2px 2px 0 #000;
+	}
+
+	h6 {
+		color: white;
+		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	}
+
+</style>
+
+

@@ -1,0 +1,59 @@
+﻿@model Gobi.Test.Jr.Domain.TodoItem
+
+<div class="container">
+    <h2>Adicione um novo item!</h2>
+    <form asp-action="Add">
+        <div class="form-group">
+            <label asp-for="Description" class="description-label"></label>
+            <input asp-for="Description" class="form-control description-input" />
+            <span asp-validation-for="Description" class="text-danger description-error"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Status" class="status-label"></label>
+            <input asp-for="Status" class="form-control status-input" />
+            <span asp-validation-for="Status" class="text-danger status-error"></span>
+        </div>
+        <div class="form-group form-check">
+            <input asp-for="Completed" class="form-check-input" />
+            <label asp-for="Completed" class="form-check-label completed-label"></label>
+        </div>
+        <div class="form-group form-check">
+            <input asp-for="Finish" class="form-check-input" />
+            <label asp-for="Finish" class="form-check-label finish-label"></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+
+<style>
+    h2 {
+        color: white;
+        font-family: Arial;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        font-size: 75px;
+    }
+
+   
+    .description-label, .status-label {
+        color: white;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    
+    .description-input, .status-input {
+        width: 200px; 
+        color: white;
+        background-color: #333;
+        border: 1px solid #555;
+    }
+
+    .description-error, .status-error {
+        color: red;
+    }
+
+    
+    .completed-label, .finish-label {
+        color: white;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+</style>
