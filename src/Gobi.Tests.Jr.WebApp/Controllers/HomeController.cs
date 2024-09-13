@@ -15,11 +15,11 @@ namespace Gobi.Tests.Jr.WebApp.Controllers
             _todoItemService = todoItemService;
         }
 
-		public IActionResult Index()
+        public IActionResult Index()
         {
             var items = _todoItemService.GetAll()
-                .OrderBy(item => item.Completed)
-                .ThenBy(item => item.Finish) 
+                .OrderBy(item => item.Finish)
+                .ThenBy(item => item.Completed)
                 .ToList();
 
             return View(items);
